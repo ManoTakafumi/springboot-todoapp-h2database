@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDoフォーム</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+    <section id="form-wrapper">
+        <h1>ToDo入力</h1>
+        <form class="todo_form" th:action="@{/add}" th:object="${todo}" method="post">
+            <!-- idが存在すれば編集、無ければ新規追加 -->
+            <input type="hidden" th:field="*{id}"/>
+            <label>タイトル: </label>
+            <input type="text" th:field="*{title}" required/>
+            <br/>
+            <label>完了: </label>
+            <input type="checkbox" th:field="*{completed}"/>
+            <br/>
+            <button type="submit">保存</button>
+        </form>
+        <a class="back" th:href="@{/}">戻る</a>
+    </section>
+</body>
+</html>

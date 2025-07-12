@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">    
+    <title>Todoリスト</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+    <section id="wrapper">
+        <h1>ToDo一覧</h1>
+        <p class="button_list">
+            <!-- ToDo追加ページへのリンク-->
+            <a class="add_todo" th:href="@{/add}">Todo追加</a>
+
+            <!-- ログアウトリンク -->
+            <a class="right" href="/login">ログアウト</a>
+         </p>
+        <div class="todo_box">
+            <ol class="todo_ol">
+                <li class="todo_list" th:each="todo : ${todos}">
+                    <span class="todo_name" th:text="${todo.title}"></span>
+                    <span class="todo_completed" th:text="${todo.completed ? '✔' : ''}"></span>
+                    <div class="action-buttons">
+                        <a class="edit" th:href="@{/edit/{id}(id=${todo.id})}">編集</a>
+                        <a class="delete" th:href="@{/delete/{id}(id=${todo.id})}">削除</a>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </section>
+</body>
+</html>
