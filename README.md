@@ -45,15 +45,15 @@ Render: [https://springboot-todo-skpo.onrender.com](https://springboot-todo-skpo
 src/
 ┝━━━━━main/
 │ ┝━━━java/com/example/todo/
-││┝━━━controller/
-││┝━━━entity/
-││┝━━━repository/
-││┝━━━service/
-||└━━━TodoApplication.java
+│ │┝━━━controller/
+│ │┝━━━entity/
+│ │┝━━━repository/
+│ │┝━━━service/
+| |└━━━TodoApplication.java
 | └━━━resources/
-| ┝━━static/
-| ┝━━━templates/
-| └━━━application.properties
+|┝━━static/
+|┝━━━templates/
+|└━━━application.properties
 
 ```
 
