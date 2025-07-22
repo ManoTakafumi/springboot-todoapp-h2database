@@ -51,7 +51,7 @@ src/
 ││┝━━━service/
 ||└━━━TodoApplication.java
 | └━━━resources/
-|　┝━━static/
+| ┝━━static/
 | ┝━━━templates/
 | └━━━application.properties
 
