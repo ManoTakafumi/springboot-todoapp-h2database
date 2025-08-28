@@ -65,4 +65,7 @@ src/
 
 ./mvnw spring-boot:run
 
+- H2コンソール：http://localhost:8080/h2-cosole
+- JDBC URL:jdbc:h2:mem:testdb
+
 ---
