@@ -43,17 +43,17 @@ Render: [https://springboot-todo-skpo.onrender.com](https://springboot-todo-skpo
 ```
 
 src/
-┝━━━━━main/
-│ ┝━━━java/com/example/todo/
-│ │┝━━━controller/
-│ │┝━━━entity/
-│ │┝━━━repository/
-│ │┝━━━service/
-| |└━━━TodoApplication.java
-| └━━━resources/
-|┝━━static/
-|┝━━━templates/
-|└━━━application.properties
+└━main/
+    ┝━━━java/com/example/todo/
+    │┝━━━controller/
+    │┝━━━entity/
+    │┝━━━repository/
+    │┝━━━service/
+    |└━━━TodoApplication.java
+    └━━━resources/
+        ┝━━static/
+        ┝━━━templates/
+        └━━━application.properties
 
 ```
 
@@ -65,7 +65,7 @@ src/
 
 ./mvnw spring-boot:run
 
-- H2コンソール：http://localhost:8080/h2-cosole
+- H2コンソール：http://localhost:8080/h2-console
 - JDBC URL:jdbc:h2:mem:testdb
 
 ---
@@ -73,9 +73,11 @@ src/
 ## スクリーンショット
 
 ### ログイン画面
+
 ![ログイン画面](./images/login.png)
 
 ### 登録画面
+
 ![登録画面](./images/register.png)
 
 ### Todoリスト画面
