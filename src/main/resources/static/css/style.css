@@ -11,7 +11,7 @@ h1 {
 /* form.html */
 #form-wrapper {
     position: relative;
-    width: 400px;
+    width: 500px;
     height: 600px;
     margin: 0 auto;
     padding: 0 5%;
@@ -85,7 +85,7 @@ h1 {
     /* opacity: 0; */
     transition: opacity 1s ease;
     position: relative;
-    width: 400px;
+    width: 500px;
     height: 600px;
     margin: 0 auto;
     padding: 0 5%;
@@ -159,6 +159,30 @@ h1 {
     top: 50%;
     transform: translateY(-50%);
     font-weight: bold;
+}
+
+?
+/* search */
+.search_form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.search_form input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search_form button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #198754;
+    color: white;
+    cursor: pointer;
 }
 
 .todo_name {
@@ -265,4 +289,48 @@ p[th\:if] {
 
 .auth-link:hover {
     text-decoration: underline;
+}
+
+/* Time */
+.todo_time_box {
+    width: 140px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+.todo_time {
+    font-size: 0.8rem;
+    color: gray;
+    margin-top: 4px;
+}
+
+/* 完了・未完了 */
+.filter_buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+/* 完了ソート＋件数 */
+.filter_buttons a,
+.todo_count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 90px;
+    height: 38px;
+    padding: 0 12px;
+    border-radius: 5px;
+    background-color: #ddd;
+    color: black;
+    text-decoration: none;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
+
+.filter_buttons a:hover {
+    background-color: #bbb;
 }

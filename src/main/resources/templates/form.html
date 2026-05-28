@@ -12,7 +12,12 @@
             <!-- idが存在すれば編集、無ければ新規追加 -->
             <input type="hidden" th:field="*{id}"/>
             <label>タイトル: </label>
-            <input type="text" th:field="*{title}" required/>
+            <input type="text" th:field="*{title}"/>
+
+            <div th:if="${#fields.hasErrors('title')}"
+                    th:errors="*{title}">
+
+            </div>
             <br/>
             <label>完了: </label>
             <input type="checkbox" th:field="*{completed}"/>

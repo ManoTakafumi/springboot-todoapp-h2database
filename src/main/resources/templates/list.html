@@ -15,9 +15,53 @@
             <!-- ログアウトリンク -->
             <a class="right" href="/login">ログアウト</a>
          </p>
+
+        <!-- 検索フォーム -->
+        <form th:action="@{/}" method="get" class="search_form">
+
+            <input type="text"
+                   name="keyword"
+                   th:value="${keyword}"
+                   placeholder="タイトル検索">
+
+            <button type="submit">
+                検索
+            </button>
+
+        </form>
+
+        <div class="filter_buttons">
+
+            <a th:href="@{/(status='all', keyword=${keyword})}">
+                全件
+            </a>
+
+            <a th:href="@{/(status='active', keyword=${keyword})}">
+                未完了
+            </a>
+
+            <a th:href="@{/(status='completed', keyword=${keyword})}">
+                完了
+            </a>
+
+            <div class="todo_count">
+                件数:
+                <span th:text="${todoCount}"></span>
+            </div>
+        </div>
+
         <div class="todo_box">
             <ol class="todo_ol">
                 <li class="todo_list" th:each="todo : ${todos}">
+                    <div class="todo_time_box">
+                        <div class="todo_time">
+                            作成: <span th:text="${#temporals.format(todo.createdAt, 'yyyy/MM/dd HH:mm')}"></span>
+                        </div>
+
+                        <div class="todo_time">
+                            更新: <span th:text="${#temporals.format(todo.updatedAt, 'yyyy/MM/dd HH:mm')}"></span>
+                        </div>
+                    </div>
                     <span class="todo_name" th:text="${todo.title}"></span>
                     <span class="todo_completed" th:text="${todo.completed ? '✔' : ''}"></span>
                     <div class="action-buttons">
@@ -27,6 +71,7 @@
                 </li>
             </ol>
         </div>
+
     </section>
 </body>
 </html>
