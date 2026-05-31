@@ -51,6 +51,10 @@ public class Todo {
         updatedAt = LocalDateTime.now();
     }
 
+    //
+    @Column(nullable = false)
+    private Integer priority = 2;
+
     //getter, setter
     public Long getId() {
         return id;
@@ -98,5 +102,13 @@ public class Todo {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Integer getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Integer priority) {
+        this.priority = priority;
     }
 }

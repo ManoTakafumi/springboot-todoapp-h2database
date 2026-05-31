@@ -19,10 +19,27 @@
 
             </div>
             <br/>
-            <label>完了: </label>
-            <input type="checkbox" th:field="*{completed}"/>
-            <br/>
+            <div class="form_row">
+
+                <div class="completed_area">
+                    <label>完了: </label>
+                    <input type="checkbox" id="completed" th:field="*{completed}"/>
+                </div>
+
+                <div class="priority_area">
+                    <label>優先度</label>
+
+                    <select id="priority" th:field="*{priority}">
+                        <option value="1">高</option>
+                        <option value="2">中</option>
+                        <option value="3">低</option>
+                    </select>
+                </div>
+
+            </div>
+
             <button type="submit">保存</button>
+
         </form>
         <a class="back" th:href="@{/}">戻る</a>
     </section>

@@ -80,6 +80,31 @@ h1 {
     text-decoration: underline;
 }
 
+.form_row {
+    display: flex;
+    justify-content: space-between;
+    align-item: center;
+
+    margin-bottom: 15px;
+}
+
+.completed_area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.priority_area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.completed_area,
+.priority_area {
+    width: 45%;
+}
+
 /* list.html */
 #wrapper {
     /* opacity: 0; */
@@ -334,3 +359,9 @@ p[th\:if] {
 .filter_buttons a:hover {
     background-color: #bbb;
 }
+
+.filter_buttons a.active {
+    background-color: #198754;
+    color: white;
+}
+

@@ -24,7 +24,7 @@ public interface TodoRepository extends JpaRepository<Todo, Long> {
             boolean completed
     );
 
-    List<Todo> findByUserOrderByUpdatedAtDesc(User user);
+    List<Todo> findByUserOrderByUpdatedAtAsc(User user);
 
     List<Todo> findByUserAndCompletedOrderByUpdatedAtDesc(
             User user,
@@ -37,6 +37,24 @@ public interface TodoRepository extends JpaRepository<Todo, Long> {
     );
 
     List<Todo> findByUserAndTitleContainingAndCompletedOrderByUpdatedAtDesc(
+            User user,
+            String keyword,
+            boolean completed
+    );
+
+    List<Todo> findByUserOrderByPriorityAscCreatedAtAsc(User user);
+
+    List<Todo> findByUserAndCompletedOrderByPriorityAscCreatedAtAsc(
+            User user,
+            boolean completed
+    );
+
+    List<Todo> findByUserAndTitleContainingOrderByPriorityAscCreatedAtAsc(
+            User user,
+            String keyword
+    );
+
+    List<Todo> findByUserAndTitleContainingAndCompletedOrderByPriorityAscCreatedAtAsc(
             User user,
             String keyword,
             boolean completed

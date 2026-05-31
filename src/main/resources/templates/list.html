@@ -32,15 +32,18 @@
 
         <div class="filter_buttons">
 
-            <a th:href="@{/(status='all', keyword=${keyword})}">
+            <a th:href="@{/(status='all', keyword=${keyword})}"
+                th:classappend="${status == 'all'} ? 'active' : ''">
                 全件
             </a>
 
-            <a th:href="@{/(status='active', keyword=${keyword})}">
+            <a th:href="@{/(status='active', keyword=${keyword})}"
+                th:classappend="${status == 'active'} ? 'active' : ''">
                 未完了
             </a>
 
-            <a th:href="@{/(status='completed', keyword=${keyword})}">
+            <a th:href="@{/(status='completed', keyword=${keyword})}"
+                th:classappend="${status == 'completed'} ? 'active' : ''">
                 完了
             </a>
 
@@ -53,6 +56,18 @@
         <div class="todo_box">
             <ol class="todo_ol">
                 <li class="todo_list" th:each="todo : ${todos}">
+
+                    <span th:if="${todo.priority == 1}">
+                        🔴高
+                    </span>
+
+                    <span th:if="${todo.priority == 2}">
+                        🟡中
+                    </span>
+
+                    <span th:if="${todo.priority == 3}">
+                        🔵低
+                    </span>
                     <div class="todo_time_box">
                         <div class="todo_time">
                             作成: <span th:text="${#temporals.format(todo.createdAt, 'yyyy/MM/dd HH:mm')}"></span>

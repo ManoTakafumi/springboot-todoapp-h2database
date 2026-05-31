@@ -53,7 +53,7 @@ public class TodoController {
                 if (hasKeyword) {
 
                     todos = todoRepository
-                            .findByUserAndTitleContainingAndCompletedOrderByUpdatedAtDesc(
+                            .findByUserAndTitleContainingAndCompletedOrderByPriorityAscCreatedAtAsc(
                                     user,
                                     keyword,
                                     true);
@@ -71,7 +71,7 @@ public class TodoController {
                 if (hasKeyword) {
 
                     todos = todoRepository
-                            .findByUserAndTitleContainingAndCompletedOrderByUpdatedAtDesc(
+                            .findByUserAndTitleContainingAndCompletedOrderByPriorityAscCreatedAtAsc(
                                     user,
                                     keyword,
                                     false);
@@ -79,7 +79,7 @@ public class TodoController {
                 } else {
 
                     todos = todoRepository
-                            .findByUserAndCompletedOrderByUpdatedAtDesc(user, false);
+                            .findByUserAndCompletedOrderByPriorityAscCreatedAtAsc(user, false);
                 }
 
                 break;
@@ -90,14 +90,14 @@ public class TodoController {
                 if (hasKeyword) {
 
                     todos = todoRepository
-                            .findByUserAndTitleContainingOrderByUpdatedAtDesc(
+                            .findByUserAndTitleContainingOrderByPriorityAscCreatedAtAsc(
                                     user,
                                     keyword);
 
                 } else {
 
                     todos = todoRepository
-                            .findByUserOrderByUpdatedAtDesc(user);
+                            .findByUserOrderByPriorityAscCreatedAtAsc(user);
                 }
         }
 
