@@ -45,6 +45,18 @@ public class TodoController {
 
         boolean hasKeyword = keyword != null && !keyword.isBlank();
 
+        long totalCount = todoRepository.countByUser(user);
+
+        long activeCount = todoRepository.countByUserAndCompleted(
+                user,
+                false
+        );
+
+        long completedCount = todoRepository.countByUserAndCompleted(
+                user,
+                true
+        );
+
         switch (status) {
 
             //完了のみ
@@ -109,6 +121,12 @@ public class TodoController {
 
         model.addAttribute("todoCount", todos.size());
 
+        model.addAttribute("totalCount", totalCount);
+
+        model.addAttribute("activeCount", activeCount);
+
+        model.addAttribute("completedCount", completedCount);
+
 //        //検索機能のみ（フィルタ機能追加前の処理）
 //        if (keyword != null && !keyword.isBlank()) {
 //
@@ -162,14 +180,29 @@ public class TodoController {
     @PostMapping("/edit")
     public String editSubmit(@ModelAttribute Todo todo, Principal principal) {
         String username = principal.getName();
+
         User user = userRepository.findByUsername(username).orElseThrow();
-        todo.setUser(user);
-        todoRepository.save(todo);
+
+        Todo oldTodo = todoRepository
+                .findById(todo.getId())
+                .orElseThrow();
+
+        oldTodo.setTitle(todo.getTitle());
+        oldTodo.setCompleted(todo.isCompleted());
+        oldTodo.setPriority(todo.getPriority());
+
+        oldTodo.setUser(user);
+
+        System.out.println("更新前: " + oldTodo.getCreatedAt());
+
+        todoRepository.save(oldTodo);
+
+        System.out.println("保存後: " + oldTodo.getCreatedAt());
         return "redirect:/";
     }
 
     /** 
-     * 指定IDの ToDo TODOを削除する
+     * 指定IDのTODOを削除する
      */
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {

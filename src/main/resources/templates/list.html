@@ -16,6 +16,32 @@
             <a class="right" href="/login">ログアウト</a>
          </p>
 
+        <div class="dashboard">
+
+            <div class="dashboard_card">
+                <div class="dashboard_title">総件数</div>
+                <div class="dashboard_value"
+                    th:text="${totalCount}">
+                </div>
+            </div>
+
+            <div class="dashboard_card">
+                <div class="dashboard_title">未完了</div>
+                <div class="dashboard_value"
+                     th:text="${activeCount}">
+                </div>
+            </div>
+
+            <div class="dashboard_card">
+                <div class="dashboard_title">完了</div>
+                <div class="dashboard_value"
+                     th:text="${completedCount}">
+
+                </div>
+            </div>
+
+        </div>
+
         <!-- 検索フォーム -->
         <form th:action="@{/}" method="get" class="search_form">
 

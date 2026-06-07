@@ -25,6 +25,8 @@ public class Todo {
     private User user;
 
     //作成日時
+    @Column(nullable = false,
+            updatable = false)
     private LocalDateTime createdAt;
 
     //更新日時

@@ -59,4 +59,11 @@ public interface TodoRepository extends JpaRepository<Todo, Long> {
             String keyword,
             boolean completed
     );
+
+    long countByUser(User user);
+
+    long countByUserAndCompleted(
+            User user,
+            boolean completed
+    );
 }
